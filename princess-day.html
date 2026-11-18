@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Princess Day, Jaspreet 👑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ffb6d0;--rose:#f06292;--lav:#d9c6f5;--lav-d:#9a7bd1;--gold:#d4a64a;--gold-l:#f6dc9a;--ink:#5a3a63;--glass:rgba(255,255,255,.55);
+--script:'Great Vibes','Brush Script MT',cursive;--body:'Nunito','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);min-height:100%;overflow-x:hidden;
+background:radial-gradient(circle at 15% 10%,#ffe3ee 0,transparent 45%),radial-gradient(circle at 85% 30%,#eadcff 0,transparent 45%),linear-gradient(170deg,#fff3f8,#f3e9ff 60%,#ffeaf2);background-attachment:fixed;
+padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+section{max-width:960px;margin:0 auto;padding:56px 20px;text-align:center}
+.script{font-family:var(--script);font-weight:400}
+.glass{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.8);border-radius:28px;box-shadow:0 10px 40px rgba(154,123,209,.2)}
+
+/* floating ambient layer */
+#fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.float{position:absolute;bottom:-40px;animation:rise linear forwards;will-change:transform}
+@keyframes rise{to{transform:translate(var(--dx,0),-115vh) rotate(var(--rot,0deg));opacity:0}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:6}
+
+/* music toggle */
+#music{position:fixed;top:calc(12px + env(safe-area-inset-top,0));right:14px;z-index:20;width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;padding:0;box-shadow:0 6px 20px rgba(212,166,74,.35);display:grid;place-items:center}
+#music svg{width:48px;height:48px}
+#music .disc{transform-origin:50% 50%;animation:spin 3s linear infinite;animation-play-state:paused}
+#music.on .disc{animation-play-state:running}
+#music .state{position:absolute;bottom:-8px;right:-4px;font-size:.7rem;background:#fff;border-radius:10px;padding:1px 6px;border:1px solid var(--gold)}
+@keyframes spin{to{transform:rotate(360deg)}}
+:focus-visible{outline:3px solid var(--lav-d);outline-offset:3px}
+
+/* hero */
+.hero{padding-top:70px;position:relative}
+.crown{width:min(230px,55vw);filter:drop-shadow(0 0 18px rgba(246,220,154,.95));animation:glow 3.5s ease-in-out infinite}
+@keyframes glow{50%{filter:drop-shadow(0 0 34px rgba(255,196,80,1));transform:translateY(-6px)}}
+h1{margin-top:6px;line-height:1.1}
+h1 .a{display:block;font-family:var(--script);font-size:clamp(2.6rem,10vw,5.2rem);background:linear-gradient(90deg,var(--rose),var(--gold),var(--lav-d),var(--rose));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+h1 .b{display:block;font-family:var(--script);font-size:clamp(1.8rem,7vw,3.2rem);color:var(--rose);margin-top:8px}
+h1 .c{display:block;font-size:clamp(1rem,3.6vw,1.4rem);font-weight:800;margin-top:6px;letter-spacing:.04em}
+@keyframes shine{to{background-position:250% 0}}
+.sub{margin:18px auto 0;max-width:520px;font-size:1.1rem;line-height:1.6}
+.down{display:inline-block;margin-top:26px;color:var(--gold);font-weight:800;text-decoration:none;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+h2{font-family:var(--script);font-weight:400;font-size:clamp(2.2rem,7vw,3.4rem);color:var(--rose);margin-bottom:8px}
+.lead{margin-bottom:28px;opacity:.85}
+
+/* envelope */
+.env{position:relative;width:min(340px,86vw);height:220px;margin:0 auto;border:0;background:none;cursor:pointer;padding:0;display:block}
+.env .body{position:absolute;inset:40px 0 0;background:linear-gradient(160deg,#ffd3e2,#ecd9ff);border-radius:6px 6px 18px 18px;box-shadow:0 12px 30px rgba(154,123,209,.35)}
+.env .body::before,.env .body::after{content:"";position:absolute;bottom:0;width:50%;height:70%;background:rgba(255,255,255,.28)}
+.env .body::before{left:0;clip-path:polygon(0 0,100% 100%,0 100%)}
+.env .body::after{right:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.env .flap{position:absolute;left:0;right:0;top:40px;height:110px;background:linear-gradient(180deg,#f7bfd5,#e6cdfa);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s ease,z-index 0s .4s;z-index:3}
+.env .seal{position:absolute;left:50%;top:112px;transform:translateX(-50%);font-size:2rem;z-index:4;transition:opacity .4s;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env.open .seal{opacity:0}
+.env .hint{position:absolute;bottom:-34px;left:0;right:0;font-weight:800;color:var(--lav-d)}
+.letter-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1s ease;margin-top:44px}
+.letter-wrap.open{grid-template-rows:1fr}
+.letter-wrap>div{overflow:hidden}
+.letter{margin:0 auto;max-width:640px;padding:34px 28px;text-align:left;background:linear-gradient(#fffdf6,#fff6ec);border:2px solid var(--gold-l);border-radius:12px;box-shadow:0 14px 40px rgba(212,166,74,.3);line-height:1.85;font-size:1.08rem;position:relative}
+.letter::before{content:"";position:absolute;inset:8px;border:1px dashed var(--gold-l);border-radius:8px;pointer-events:none}
+.letter .to{font-family:var(--script);font-size:2.2rem;color:var(--rose)}
+.letter p{margin:12px 0}
+.letter .sign{font-family:var(--script);font-size:2rem;color:var(--lav-d);text-align:right;margin-top:18px}
+
+/* flip cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{perspective:900px;height:230px;border:0;background:none;padding:0;cursor:pointer;font:inherit;color:inherit}
+.card .in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.3,1.2,.5,1);transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:8px}
+.front{background:linear-gradient(145deg,rgba(255,255,255,.75),rgba(255,214,232,.6));border:2px solid var(--gold-l);box-shadow:0 10px 30px rgba(240,98,146,.2),inset 0 0 30px rgba(255,255,255,.7)}
+.front .ic{font-size:2.8rem}
+.front h3{font-family:var(--script);font-weight:400;font-size:2rem;color:var(--rose)}
+.front small{opacity:.7}
+.back{transform:rotateY(180deg);background:linear-gradient(145deg,#efe3ff,#ffe6f0);border:2px solid var(--lav);font-size:1rem;line-height:1.55}
+.back.shin{background:linear-gradient(145deg,#fff4c9,#ffd9e6);border-color:var(--gold)}
+.back .tag{font-weight:800;color:var(--lav-d);font-size:.85rem}
+
+/* celebrate */
+#shower{font-family:var(--body);font-weight:800;font-size:1.25rem;color:#fff;border:0;border-radius:60px;padding:18px 38px;cursor:pointer;background:linear-gradient(135deg,var(--rose),#e58bd0 50%,var(--gold));box-shadow:0 10px 30px rgba(240,98,146,.5);animation:pulse 2.2s ease-in-out infinite;max-width:100%}
+#shower:active{transform:scale(.96)}
+@keyframes pulse{50%{transform:scale(1.05);box-shadow:0 14px 40px rgba(240,98,146,.7)}}
+#final{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--lav-d);margin-top:26px;min-height:1.2em}
+
+/* shinchan footer */
+footer{padding:30px 16px 40px;text-align:center}
+.doodles{display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,4vw,36px)}
+.doodle{background:none;border:0;cursor:pointer;padding:0;transition:transform .2s}
+.doodle:hover{transform:rotate(-6deg) scale(1.08)}
+.doodle:active{transform:scale(.92)}
+.doodle svg{display:block;height:clamp(90px,24vw,130px);width:auto;overflow:visible}
+footer p{margin-top:12px;font-size:.95rem;opacity:.85}
+footer .tap{font-size:.8rem;opacity:.6}
+#note{position:fixed;z-index:30;max-width:240px;padding:12px 16px;border-radius:18px;background:#fff;border:2px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.2);font-weight:700;font-size:.95rem;opacity:0;pointer-events:none;transform:translateY(8px) scale(.9);transition:.25s}
+#note.show{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<div id="fx" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- Music toggle: spinning vinyl with a crown in the centre -->
+<button id="music" aria-label="Play music" title="Play / pause music">
+  <svg viewBox="0 0 60 60" aria-hidden="true">
+    <g class="disc">
+      <circle cx="30" cy="30" r="28" fill="#4a3452"/>
+      <circle cx="30" cy="30" r="22" fill="none" stroke="#8a6c95" stroke-width=".8"/>
+      <circle cx="30" cy="30" r="17" fill="none" stroke="#8a6c95" stroke-width=".8"/>
+      <circle cx="30" cy="30" r="12" fill="#f6dc9a"/>
+      <path d="M22 35l-2-9 5 4 5-7 5 7 5-4-2 9z" fill="#d4a64a" stroke="#fff" stroke-width=".6" transform="translate(-3 -2) scale(.9) translate(3 3)"/>
+      <path d="M8 22a24 24 0 0 1 14-14" stroke="#fff" stroke-opacity=".4" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>
+  <span class="state" id="mstate">▶</span>
+</button>
+
+<!-- Shared doodle symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="shin" viewBox="0 0 100 130">
+      <ellipse cx="50" cy="120" rx="30" ry="6" fill="#000" opacity=".08"/>
+      <rect x="33" y="82" width="34" height="34" rx="10" fill="#e63946"/>
+      <rect x="36" y="112" width="11" height="12" rx="4" fill="#ffd9b8" stroke="#3a2a2a" stroke-width="2"/>
+      <rect x="54" y="112" width="11" height="12" rx="4" fill="#ffd9b8" stroke="#3a2a2a" stroke-width="2"/>
+      <path d="M33 90q-12 -8 -8 -24" stroke="#3a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M67 90q12 -8 8 -24" stroke="#3a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M17 52l5 5 6-9 6 9 6-9 5 9 5-9 6 9 6-9 5 9 5-5-3 14h-52z" transform="translate(-1 -22) scale(1.02)" fill="#f6c445" stroke="#d4a64a" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="20" y="40" width="60" height="46" rx="22" fill="#ffd9b8" stroke="#3a2a2a" stroke-width="2.5"/>
+      <path d="M20 46q30 -14 60 0q-4 -20 -30 -20t-30 20z" fill="#2b2222"/>
+      <path d="M31 53q6 -6 14 -1M55 52q8 -5 14 1" stroke="#2b2222" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="38" cy="62" r="3" fill="#2b2222"/><circle cx="62" cy="62" r="3" fill="#2b2222"/>
+      <circle cx="30" cy="72" r="4.5" fill="#ff9fb5" opacity=".7"/><circle cx="70" cy="72" r="4.5" fill="#ff9fb5" opacity=".7"/>
+      <path d="M42 72q8 9 16 0q-8 3 -16 0z" fill="#c0392b" stroke="#2b2222" stroke-width="2" stroke-linejoin="round"/>
+      <text x="50" y="104" text-anchor="middle" font-size="14">💖</text>
+    </symbol>
+    <symbol id="star" viewBox="0 0 100 110">
+      <path d="M50 4l13 30 33 3-25 22 8 32-29-17-29 17 8-32L4 37l33-3z" fill="#ffd54a" stroke="#d4a64a" stroke-width="3" stroke-linejoin="round" transform="translate(0 6)"/>
+      <rect x="28" y="44" width="44" height="12" rx="6" fill="#e63946"/>
+      <circle cx="39" cy="50" r="3" fill="#fff"/><circle cx="61" cy="50" r="3" fill="#fff"/>
+      <path d="M42 66q8 7 16 0" stroke="#7a4b2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M72 62l8-4-2 9" fill="#e63946"/>
+    </symbol>
+    <symbol id="shiro" viewBox="0 0 110 100">
+      <ellipse cx="55" cy="93" rx="38" ry="6" fill="#000" opacity=".08"/>
+      <path d="M20 70q-14 -8 -8 -24q8 4 12 14z" fill="#fff" stroke="#9c8fa8" stroke-width="2.5" stroke-linejoin="round"/>
+      <ellipse cx="55" cy="68" rx="34" ry="22" fill="#fff" stroke="#9c8fa8" stroke-width="2.5"/>
+      <ellipse cx="55" cy="42" rx="27" ry="24" fill="#fff" stroke="#9c8fa8" stroke-width="2.5"/>
+      <path d="M32 28q-12 -2 -10 14q10 -2 16 -10z" fill="#fff" stroke="#9c8fa8" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M78 28q12 -2 10 14q-10 -2 -16 -10z" fill="#fff" stroke="#9c8fa8" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="45" cy="40" r="3.2" fill="#2b2222"/><circle cx="65" cy="40" r="3.2" fill="#2b2222"/>
+      <ellipse cx="55" cy="49" rx="5" ry="3.6" fill="#2b2222"/>
+      <path d="M49 55q6 6 12 0" stroke="#2b2222" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <circle cx="37" cy="50" r="4" fill="#ffb6d0" opacity=".7"/><circle cx="73" cy="50" r="4" fill="#ffb6d0" opacity=".7"/>
+      <text x="55" y="14" text-anchor="middle" font-size="16">❤️</text>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="crown" viewBox="0 0 200 150" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2b8"/><stop offset=".5" stop-color="#f0c15a"/><stop offset="1" stop-color="#c8923a"/></linearGradient>
+    </defs>
+    <path d="M20 112L10 40l45 38 45-62 45 62 45-38-10 72z" fill="url(#g)" stroke="#b8862f" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="20" y="112" width="160" height="22" rx="8" fill="url(#g)" stroke="#b8862f" stroke-width="3"/>
+    <circle cx="10" cy="38" r="8" fill="#ff8fb7" stroke="#b8862f" stroke-width="2"/>
+    <circle cx="100" cy="14" r="10" fill="#c9a8ff" stroke="#b8862f" stroke-width="2"/>
+    <circle cx="190" cy="38" r="8" fill="#ff8fb7" stroke="#b8862f" stroke-width="2"/>
+    <circle cx="55" cy="123" r="6" fill="#ff8fb7"/><circle cx="100" cy="123" r="7" fill="#c9a8ff"/><circle cx="145" cy="123" r="6" fill="#ff8fb7"/>
+    <path d="M100 56l6 10-6 10-6-10z" fill="#fff" opacity=".6"/>
+  </svg>
+  <h1>
+    <span class="a">Happy Princess Day,</span>
+    <span class="b">My Queen</span>
+    <span class="c">Jaspreet Rishabh Singh 👑💖</span>
+  </h1>
+  <p class="sub">Today is all about you, my love. Scroll down — I made this with all of my heart.</p>
+  <a class="down" href="#letter">♡ open your letter ♡</a>
+</section>
+
+<!-- LOVE LETTER -->
+<section id="letter">
+  <h2>A Letter for You</h2>
+  <p class="lead">Tap the envelope</p>
+  <button class="env" id="env" aria-expanded="false" aria-controls="letterBox">
+    <span class="body"></span><span class="flap"></span><span class="seal">💌</span>
+  </button>
+  <div class="letter-wrap" id="letterBox"><div>
+    <article class="letter">
+      <!-- ✏️ EDIT: change any line of the letter below to make it more personal -->
+      <div class="to">My dearest Jaspreet,</div>
+      <p><!-- EDIT: opening line -->Some people spend their whole lives looking for a little magic. I found mine the day you walked into my life.</p>
+      <p><!-- EDIT: kindness -->Your kindness is the quietest and strongest thing I know. You care for everyone around you without ever asking for anything back, and the world is softer because of you.</p>
+      <p><!-- EDIT: beauty --> You are beautiful in the way you smile, in the way you laugh, and most of all in the way your heart works. I still catch myself just looking at you.</p>
+      <p><!-- EDIT: strength -->You are also the strongest person I know. Through every hard day you stood tall, held us together, and made it look graceful. I am so proud to call you mine.</p>
+      <p><!-- EDIT: everyday magic -->Ordinary mornings, chai, small talk, silly jokes: with you, everything turns into my favourite part of the day.</p>
+      <p><!-- EDIT: closing -->You are not just my princess today. You are my queen, my best friend and my home. I love you more than words can say, today and always.</p>
+      <div class="sign">Forever yours, <!-- EDIT: your name or nickname -->Your Rishabh ❤️</div>
+    </article>
+  </div></div>
+</section>
+
+<!-- WHY CARDS -->
+<section>
+  <h2>Why You Are My Forever Princess</h2>
+  <p class="lead">Tap each card to flip it</p>
+  <div class="cards">
+    <!-- ✏️ EDIT: change titles / back text of any card below -->
+    <button class="card" aria-label="Flip card: Kind Heart"><div class="in">
+      <div class="face front"><span class="ic">💗</span><h3>Kind Heart</h3><small>tap to flip</small></div>
+      <div class="face back"><span class="tag">Because…</span>You love so gently that everyone around you feels a little more cared for.</div>
+    </div></button>
+    <button class="card" aria-label="Flip card: Radiant Beauty"><div class="in">
+      <div class="face front"><span class="ic">✨</span><h3>Radiant Beauty</h3><small>tap to flip</small></div>
+      <div class="face back"><span class="tag">Because…</span>Your smile can light up any room, and my whole world with it.</div>
+    </div></button>
+    <button class="card" aria-label="Flip card: Quiet Strength"><div class="in">
+      <div class="face front"><span class="ic">🛡️</span><h3>Quiet Strength</h3><small>tap to flip</small></div>
+      <div class="face back"><span class="tag">Because…</span>You carry so much with grace, and you make me braver just by being near.</div>
+    </div></button>
+    <button class="card" aria-label="Flip card: Everyday Magic"><div class="in">
+      <div class="face front"><span class="ic">🪄</span><h3>Everyday Magic</h3><small>tap to flip</small></div>
+      <div class="face back shin"><span class="tag">Shin-chan says…</span>“Even Shinchan would share his Chocobi with you!” 🍪<br>That’s how special you are! 😜</div>
+    </div></button>
+  </div>
+</section>
+
+<!-- CELEBRATE -->
+<section>
+  <h2>One More Thing…</h2>
+  <button id="shower">Shower My Princess With Love ✨</button>
+  <div id="final" aria-live="polite"></div>
+</section>
+
+<!-- SHINCHAN-STYLE FOOTER (tap the doodles!) -->
+<footer>
+  <div class="doodles">
+    <button class="doodle" data-who="shin" aria-label="Shinchan-style doodle with a crown"><svg viewBox="0 0 100 130"><use href="#shin"/></svg></button>
+    <button class="doodle" data-who="star" aria-label="Action Kamen star"><svg viewBox="0 0 100 110"><use href="#star"/></svg></button>
+    <button class="doodle" data-who="shiro" aria-label="Shiro the puppy"><svg viewBox="0 0 110 100"><use href="#shiro"/></svg></button>
+  </div>
+  <p class="script" style="font-size:1.8rem;color:var(--rose)">Made with love, just for you 💖</p>
+  <p class="tap">psst… tap the little friends</p>
+</footer>
+
+<div id="note" role="status"></div>
+
+<script>
+/* ===== helpers ===== */
+const $ = s => document.querySelector(s);
+const fx = $('#fx');
+
+/* ===== floating hearts / sparkles ===== */
+function floater(symbol, opts = {}) {
+  const el = document.createElement('span');
+  el.className = 'float';
+  el.textContent = symbol;
+  const size = opts.size || (14 + Math.random() * 22);
+  el.style.cssText = `left:${opts.x ?? Math.random() * 100}%;font-size:${size}px;--dx:${(Math.random() - .5) * 120}px;--rot:${(Math.random() - .5) * 60}deg;animation-duration:${opts.dur || 7 + Math.random() * 6}s;opacity:${opts.op || .75}`;
+  fx.appendChild(el);
+  setTimeout(() => el.remove(), 14000);
+}
+const ambient = ['💗', '💖', '✨', '🌸', '💜', '⭐'];
+setInterval(() => floater(ambient[Math.floor(Math.random() * ambient.length)], { op: .45 }), 1400);
+
+/* ===== confetti ===== */
+const cv = $('#confetti'), cx = cv.getContext('2d');
+let parts = [], running = false;
+function sizeCv() { cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio; }
+addEventListener('resize', sizeCv); sizeCv();
+const colors = ['#ff8fb7', '#ffb6d0', '#f6dc9a', '#d4a64a', '#d9c6f5', '#ffffff', '#f06292'];
+function burst(x, y, n = 140) {
+  for (let i = 0; i < n; i++) {
+    const a = Math.random() * Math.PI * 2, s = 4 + Math.random() * 11;
+    parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 6, g: .22, r: 4 + Math.random() * 6, rot: Math.random() * 6, vr: (Math.random() - .5) * .3, c: colors[i % colors.length], heart: Math.random() < .3, life: 140 + Math.random() * 60 });
+  }
+  if (!running) { running = true; requestAnimationFrame(tick); }
+}
+function heartPath(c, r) { c.beginPath(); c.moveTo(0, r * .4); c.bezierCurveTo(-r, -r * .4, -r * .6, -r, 0, -r * .4); c.bezierCurveTo(r * .6, -r, r, -r * .4, 0, r * .4); c.fill(); }
+function tick() {
+  cx.clearRect(0, 0, cv.width, cv.height);
+  const d = devicePixelRatio;
+  parts = parts.filter(p => p.life > 0);
+  for (const p of parts) {
+    p.vy += p.g; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life--;
+    cx.save(); cx.translate(p.x * d, p.y * d); cx.rotate(p.rot); cx.fillStyle = p.c; cx.globalAlpha = Math.min(1, p.life / 40);
+    if (p.heart) heartPath(cx, p.r * 1.6 * d); else cx.fillRect(-p.r * d / 2, -p.r * d / 2, p.r * d, p.r * d * .6);
+    cx.restore();
+  }
+  if (parts.length) requestAnimationFrame(tick); else { running = false; cx.clearRect(0, 0, cv.width, cv.height); }
+}
+
+/* ===== shower button ===== */
+const finals = [
+  'I love you, my Princess! 💖', 'You are my everything 👑', 'Happy Princess Day, Jaspreet! 🌸', 'Forever yours, my Queen ✨'
+];
+let fi = 0;
+$('#shower').addEventListener('click', e => {
+  const w = innerWidth, h = innerHeight;
+  burst(w / 2, h * .45, 180); burst(w * .2, h * .6, 90); burst(w * .8, h * .6, 90);
+  const sym = ['💖', '💗', '💕', '✨', '👑', '🌟', '💜'];
+  for (let i = 0; i < 40; i++) setTimeout(() => floater(sym[i % sym.length], { size: 20 + Math.random() * 30, op: .95, dur: 4 + Math.random() * 4 }), i * 70);
+  $('#final').textContent = finals[fi++ % finals.length];
+});
+
+/* ===== envelope ===== */
+const env = $('#env'), box = $('#letterBox');
+env.addEventListener('click', () => {
+  const open = !env.classList.contains('open');
+  env.classList.toggle('open', open);
+  box.classList.toggle('open', open);
+  env.setAttribute('aria-expanded', open);
+  if (open) { burst(innerWidth / 2, env.getBoundingClientRect().top + 90, 50); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500); }
+});
+
+/* ===== flip cards ===== */
+document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => c.classList.toggle('flip')));
+
+/* ===== Shinchan-style cheeky notes ===== */
+/* ✏️ EDIT: add or change the playful popup lines here */
+const notes = {
+  shin: ['Hubba hubba! Even a princess needs a Chocobi break! 🍪', 'Ohhh, Jaspreet-hime! You look so pretty, I almost dropped my crown! 👑', 'Mommy says you are the best wife ever. I agree! (Dad too!) 😜', 'Buri buri~ Happy Princess Day! 🍑'],
+  star: ['I am Action Kamen, and I declare you the Queen of the Universe! ⭐', 'Action Beam! Zap, zap! Sending you a million hugs! 💥', 'Stars are jealous of how much you shine! 🌟'],
+  shiro: ['Woof woof! (Translation: I love you!) 🐶', 'Shiro wants cuddles from the princess! 🤍', '*wags tail very fast* Happy Princess Day!']
+};
+const idx = { shin: 0, star: 0, shiro: 0 };
+const note = $('#note'); let nt;
+document.querySelectorAll('.doodle').forEach(b => b.addEventListener('click', e => {
+  const k = b.dataset.who, list = notes[k];
+  note.textContent = list[idx[k]++ % list.length];
+  const r = b.getBoundingClientRect(), nw = Math.min(240, innerWidth - 20);
+  note.style.maxWidth = nw + 'px';
+  note.style.left = Math.max(10, Math.min(innerWidth - nw - 10, r.left + r.width / 2 - nw / 2)) + 'px';
+  note.style.top = Math.max(10, r.top - 90) + 'px';
+  note.classList.add('show'); clearTimeout(nt); nt = setTimeout(() => note.classList.remove('show'), 3200);
+  burst(r.left + r.width / 2, r.top + 20, 25);
+}));
+
+/* ===== Music box (Web Audio API) ===== */
+/* ✏️ EDIT: change the melody here. Format: [note, beats]. 3/4 waltz feel, gentle tempo. */
+const BEAT = 0.52;
+const MELODY = [
+  ['E5',1],['G5',1],['C6',1],  ['B5',1.5],['G5',.5],['A5',1],  ['F5',1],['A5',1],['C6',1],  ['B5',2],['G5',1],
+  ['D5',1],['F5',1],['A5',1],  ['G5',1.5],['E5',.5],['G5',1],  ['E5',1],['D5',1],['C5',1],  ['C5',3]
+];
+/* bass root + chord tone per bar */
+const BASS = [['C3','E4'],['G2','D4'],['F2','A4'],['G2','D4'],['D3','F4'],['C3','E4'],['G2','B4'],['C3','G4']];
+const NOTE_IDX = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 };
+const freq = n => { const m = n.match(/^([A-G])(\d)$/); return 440 * Math.pow(2, (NOTE_IDX[m[1]] + (+m[2] + 1) * 12 - 69) / 12); };
+
+let ac, master, playing = false, nextLoop = 0, timer;
+function chime(f, t, dur, vol) {
+  /* soft music-box tone: sine fundamental + faint high partials, fast attack, long decay */
+  [[1, 1], [2.01, .25], [4.2, .08]].forEach(([mul, amp]) => {
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = 'sine'; o.frequency.value = f * mul;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol * amp, t + .01);
+    g.gain.exponentialRampToValueAtTime(.0001, t + dur * (mul > 1 ? .5 : 1));
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + .1);
+  });
+}
+function scheduleLoop(start) {
+  let t = start, bar = 0, beatsInBar = 0;
+  MELODY.forEach(([n, b]) => {
+    chime(freq(n), t, b * BEAT + 1.2, .16);
+    t += b * BEAT;
+  });
+  BASS.forEach(([root, tone], i) => {
+    const bt = start + i * 3 * BEAT;
+    chime(freq(root), bt, 2.2, .14);
+    chime(freq(tone), bt + BEAT, 1.2, .05);
+    chime(freq(tone), bt + 2 * BEAT, 1.2, .04);
+  });
+  return start + 24 * BEAT + .6;
+}
+function pump() { if (ac.currentTime > nextLoop - 2) nextLoop = scheduleLoop(nextLoop); }
+async function setMusic(on) {
+  if (on) {
+    if (!ac) {
+      ac = new (window.AudioContext || window.webkitAudioContext)();
+      master = ac.createGain(); master.gain.value = .9;
+      const echo = ac.createDelay(); echo.delayTime.value = .32;
+      const fb = ac.createGain(); fb.gain.value = .3;
+      const wet = ac.createGain(); wet.gain.value = .35;
+      master.connect(ac.destination); master.connect(echo); echo.connect(fb); fb.connect(echo); echo.connect(wet); wet.connect(ac.destination);
+      nextLoop = ac.currentTime + .2;
+    }
+    await ac.resume(); playing = true; pump(); timer = setInterval(pump, 400);
+  } else { playing = false; clearInterval(timer); if (ac) await ac.suspend(); }
+  const b = $('#music'); b.classList.toggle('on', playing);
+  b.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
+  $('#mstate').textContent = playing ? '❚❚' : '▶';
+}
+$('#music').addEventListener('click', () => setMusic(!playing));
+</script>
+</body>
+</html>
